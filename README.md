@@ -4,8 +4,8 @@ PulseCare merupakan sistem informasi pelayanan pasien rawat jalan yang dirancang
 # Fitur Utama Program
 - Login dan Logout - Pegawai masuk dan keluar sesuai hak akses.
 - Pengelolaan Akun Pegawai - Admin mengelola akun dan menetapkan role.
-- Pengelolaan Data Pasien - Petugas menambah dan mengelola data pasien.
-- Pendaftaran Kunjungan - Petugas mendaftarkan kunjungan pasien.
+- Pengelolaan Data Pasien - Pegawai menambah dan mengelola data pasien.
+- Pendaftaran Kunjungan - Pegawai mendaftarkan kunjungan pasien.
 - Pemberian Nomor Antrean -  Sistem memberikan nomor antrean saat pendaftaran.
 - Pengelolaan Antrean Dokter - Dokter melihat dan memilih pasien yang akan diperiksa.
 - Catatan Tindak Lanjut - Dokter mencatat rekomendasi setelah pemeriksaan.
