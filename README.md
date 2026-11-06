@@ -144,10 +144,16 @@ Diagram logical database pada sistem PulseCare menggambarkan hubungan antarentit
 
 # Struktur Folder/Package
 
-
 # Penjelasan Penerapan 4 Pilar OOP di dalam program
+1. Encapsulation (Enkapsulasi)
 
-# Cara Penggunaan 
+2.  Inheritance (Pewarisan)
+
+3.  Polymorphism (Polimorfisme)
+
+4. Abstraction (Abstraksi)
+   
+# Cara Penggunaan Program
 
 # Nama Anggota
 - Ghea Aisyah Windraswari : 2509116022
