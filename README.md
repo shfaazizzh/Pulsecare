@@ -143,21 +143,421 @@ Diagram logical database pada sistem PulseCare menggambarkan hubungan antarentit
 </details>
 
 # Struktur Folder/Package
+```text
+PulseCare/
+│
+├── lib/
+│   └── unknown/
+│       └── binary/
+│           └── AbsoluteLayout/
+│               └── SNAPSHOT/
+│                   └── AbsoluteLayout-SNAPSHOT.jar
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   ├── config/
+│       │   │   ├── KoneksiDB.java
+│       │   │   └── TestKoneksiDB.java
+│       │   │
+│       │   ├── controller/
+│       │   │   ├── AdminController.java
+│       │   │   ├── KunjunganController.java
+│       │   │   ├── LoginController.java
+│       │   │   ├── PasienController.java
+│       │   │   ├── PemeriksaanController.java
+│       │   │   └── RiwayatKunjunganController.java
+│       │   │
+│       │   ├── main/
+│       │   │   └── Main.java
+│       │   │
+│       │   ├── model/
+│       │   │   ├── Admin.java
+│       │   │   ├── Akun.java
+│       │   │   ├── Dokter.java
+│       │   │   ├── HasilKunjungan.java
+│       │   │   ├── Pasien.java
+│       │   │   ├── Petugas.java
+│       │   │   ├── Poliklinik.java
+│       │   │   ├── RiwayatKunjungan.java
+│       │   │   ├── Shift.java
+│       │   │   │
+│       │   │   └── dao/
+│       │   │       ├── AdminDAO.java
+│       │   │       ├── AntreanDokterDAO.java
+│       │   │       ├── HasilKunjunganDAO.java
+│       │   │       ├── KunjunganDAO.java
+│       │   │       ├── LoginDAO.java
+│       │   │       ├── PasienDAO.java
+│       │   │       ├── ReferensiDAO.java
+│       │   │       └── RiwayatKunjunganDAO.java
+│       │   │
+│       │   └── view/
+│       │       ├── AntreanDokter.java
+│       │       ├── AntreanDokter.form
+│       │       ├── DaftarkanKunjungan.java
+│       │       ├── DaftarkanKunjungan.form
+│       │       ├── DashboardAdmin.java
+│       │       ├── DashboardAdmin.form
+│       │       ├── DashboardDokter.java
+│       │       ├── DashboardDokter.form
+│       │       ├── DashboardPetugas.java
+│       │       ├── DashboardPetugas.form
+│       │       ├── FormAkun.java
+│       │       ├── FormAkun.form
+│       │       ├── FormPasien.java
+│       │       ├── FormPasien.form
+│       │       ├── FormPemeriksaan.java
+│       │       ├── FormPemeriksaan.form
+│       │       ├── KelolaAkun.java
+│       │       ├── KelolaAkun.form
+│       │       ├── KelolaPasien.java
+│       │       ├── KelolaPasien.form
+│       │       ├── Login.java
+│       │       ├── Login.form
+│       │       ├── MainFrame.java
+│       │       ├── MainFrame.form
+│       │       ├── MenuUtama.java
+│       │       ├── MenuUtama.form
+│       │       ├── PerbaruiStatus.java
+│       │       ├── PerbaruiStatus.form
+│       │       ├── RiwayatKunjungan.java
+│       │       └── RiwayatKunjungan.form
+│       │
+│       └── resources/
+│           ├── Admin 70x70.png
+│           ├── Dokter 50x50.png
+│           ├── Dokter 70x70.png
+│           ├── Dokter_40x40.png
+│           ├── Hapus akun.jpg.jpeg
+│           ├── Logo PulseCare 256x256.png
+│           ├── Logo PulseCare sedang tanpa tulisan.png
+│           ├── Logo PulseCare sedang.png
+│           ├── Modern Hospital Entrance and Wayfinding.png
+│           ├── bg form.png
+│           ├── hapus akun besar.png
+│           ├── orang navy baru.jpg
+│           ├── orang pulsecare yg bener.png
+│           ├── petugas_40x40.png
+│           ├── pulsecare_profile_icon_50.png
+│           ├── tambah akun.png
+│           └── ubah akun.png
+│
+└── pom.xml
+```
+
 
 # Penjelasan Penerapan 4 Pilar OOP di dalam program
-1. Encapsulation (Enkapsulasi)
 
-2.  Inheritance (Pewarisan)
+### 1. Encapsulation (Enkapsulasi)
 
-3.  Polymorphism (Polimorfisme)
+Enkapsulasi pada project PulseCare diterapkan melalui class Pasien dengan menggunakan atribut bertipe private, seperti ID pasien, NIK, nama lengkap, tanggal lahir, jenis kelamin, dan status BPJS. Atribut tersebut tidak dapat diakses secara langsung dari luar class, sehingga penggunaannya harus melalui method getter untuk mengambil data dan setter untuk mengubah data. Penerapan ini bertujuan untuk melindungi data pasien agar lebih terkontrol, serta membuat pengelolaan data menjadi lebih terstruktur.
 
-4. Abstraction (Abstraksi)
-   
+**Contoh implementasi:**
+
+```java
+public class Pasien {
+    private String idPasien;
+    private String nik;
+    private String namaLengkap;
+    private LocalDate tanggalLahir;
+    private String jenisKelamin;
+    private String statusBpjs;
+
+    public Pasien() {
+    }
+
+    public Pasien(String idPasien, String namaLengkap, String nik,
+            LocalDate tanggalLahir, String jenisKelamin,
+            String statusBpjs) {
+
+        this.idPasien = idPasien;
+        this.namaLengkap = namaLengkap;
+        this.nik = nik;
+        this.tanggalLahir = tanggalLahir;
+        this.jenisKelamin = jenisKelamin;
+        this.statusBpjs = statusBpjs;
+    }
+
+    public String getIdPasien() {
+        return idPasien;
+    }
+
+    public void setIdPasien(String idPasien) {
+        this.idPasien = idPasien;
+    }
+
+    public String getNik() {
+        return nik;
+    }
+
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
+
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
+    }
+
+    public LocalDate getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(LocalDate tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    public String getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public String getStatusBpjs() {
+        return statusBpjs;
+    }
+
+    public void setStatusBpjs(String statusBpjs) {
+        this.statusBpjs = statusBpjs;
+    }
+}
+
+```
+### 2. Inheritance (Pewarisan)
+Konsep Inheritance (Pewarisan) pada sistem PulseCare diterapkan melalui class tampilan yang menggunakan keyword extends, seperti DashboardPetugas dan DashboardDokter. Class tersebut mewarisi atribut dan method dari class bawaan Java Swing, seperti JPanel, JDialog, dan JFrame, sehingga dapat menggunakan fungsi yang sudah tersedia tanpa harus membuatnya dari awal.
+
+**Contoh implementasi:**
+
+```java
+public class DashboardPetugas extends javax.swing.JPanel
+
+```
+```java
+public class DashboardDokter extends javax.swing.JPanel
+```
+### 3.Polymorphism (Polimorfisme)
+Polymorphism merupakan konsep OOP yang memungkinkan suatu metode memiliki perilaku berbeda sesuai dengan objek yang menggunakannya. Konsep ini dapat diterapkan melalui overriding, yaitu menimpa metode dari class induk dengan implementasi yang berbeda, dan overloading, yaitu menggunakan nama metode yang sama dengan parameter berbeda.
+
+Pada program PulseCare, konsep Polymorphism diterapkan melalui method overriding pada class DashboardPetugas.java. Program menimpa metode isCellEditable() dari class DefaultTableModel dengan mengembalikan nilai false. Tujuannya agar seluruh sel pada tabel tidak dapat diedit oleh pengguna. Dengan demikian, metode bawaan dari class induk memiliki perilaku khusus sesuai kebutuhan program.
+
+Contoh implementasi:
+```java
+DefaultTableModel model = new DefaultTableModel(kolom, 0) {
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return false;
+    }
+};
+```
+### 4. Abstraction (Abstraksi)
+Abstraction (Abstraksi) merupakan konsep OOP yang menyembunyikan detail proses atau implementasi dan hanya menampilkan bagian penting yang diperlukan. Konsep ini dapat diterapkan melalui abstract class dan abstract method, yaitu class dan metode yang menjadi dasar bagi class turunannya.
+
+Pada program, konsep Abstraction diterapkan melalui class Pengguna.java yang menggunakan kata kunci abstract serta memiliki metode abstrak tampilkanPeran(). Metode tersebut tidak memiliki isi di class induk sehingga harus diimplementasikan oleh class turunannya sesuai dengan peran masing-masing.
+
+Contoh implementasi Abstraction:
+```java
+public abstract class Pengguna {
+    public abstract void tampilkanPeran();
+}
+```
 # Cara Penggunaan Program
+### 1. Menu Utama
+<img width="599" height="391" alt="image" src="https://github.com/user-attachments/assets/9539061d-dce3-4d3c-8224-99c1dd429a5a" />
+
+1. Jalankan aplikasi PulseCare.
+   
+2. unggu hingga halaman Menu Utama muncul.
+
+3. Klik tombol Masuk untuk melanjutkan ke halaman Login.
+
+4. Jika tidak ingin menggunakan aplikasi, klik tombol Keluar untuk menutup aplikasi.
+
+### 2. Login
+<img width="602" height="413" alt="Screenshot 2026-11-07 043741" src="https://github.com/user-attachments/assets/16877c52-0808-4cd4-b6a7-5103d1e7d8c5" />
+
+1. Setelah menekan tombol Masuk, halaman Login akan ditampilkan
+
+2. Masukkan Username/NIP pada kolom yang tersedia
+
+3. Masukkan Password sesuai dengan akun yang terdaftar
+
+4. klik tombol login
+
+
+5. Sistem akan memeriksa kecocokan data akun yang terdaftar
+
+6. Jika data benar, pengguna akan diarahkan ke dashboard sesuai role
+
+7. jika data salah, sistem menampilkan pemberitahuan bahwa Username atau Password tidak sesuai
+
+### 3. Dashboard Admin
+<img width="605" height="422" alt="image" src="https://github.com/user-attachments/assets/12c66bb7-1c4f-45bf-88ea-ec774ddbf53d" />
+
+1. Login menggunakan akun dengan role Admin
+
+2. Sistem akan menampilkan Dashboard Admin
+
+3. Pilih menu Kelola Akun untuk mengelola akun
+
+4. Pilih menu Kelola Data Pasien untuk mengelola informasi pasien
+
+### 4. Kelola Akun
+<img width="604" height="416" alt="image" src="https://github.com/user-attachments/assets/4690c391-4853-4552-85fd-60805dda2f95" />
+
+1. Buka menu Kelola Akun.
+
+2. Sistem menampilkan daftar akun pengguna.
+
+3. Pilih fungsi tambah atau ubah akun sesuai kebutuhan.
+
+4. Isi informasi akun pada formulir.
+
+5. Tentukan role pengguna, seperti Admin, Petugas, atau Dokter.
+
+6. Simpan perubahan.
+
+7. Sistem menyimpan data akun ke database.
+
+### 5. Form Pasien
+<img width="299" height="400" alt="image" src="https://github.com/user-attachments/assets/521c9759-446d-400c-9cc0-6b503517252c" />
+
+1. Buka menu Kelola Pasien.
+
+2. Sistem menampilkan daftar pasien.
+
+3. Pilih pasien untuk melihat atau mengubah datanya.
+
+4. Untuk menambahkan pasien, buka formulir pasien.
+
+5. Isi identitas pasien sesuai informasi yang tersedia.
+
+6. Simpan data pasien.
+
+7. Sistem menyimpan perubahan ke database.
+   
+### 6. Dashboard Petugas 
+<img width="604" height="413" alt="image" src="https://github.com/user-attachments/assets/1bc189c2-d7b5-48d7-a597-7256d9c75074" />
+
+1. Login menggunakan akun dengan role Petugas.
+
+2. Sistem menampilkan Dashboard Petugas.
+
+3. Pilih menu Kelola Data Pasien atau Daftarkan Kunjungan sesuai kebutuhan.
+
+### 7.Mendaftaran Kunjungan
+<img width="581" height="394" alt="image" src="https://github.com/user-attachments/assets/03825d10-4ed3-4002-9ad1-29670e590cc6" />
+
+1. Buka menu Daftarkan Kunjungan.
+
+2. Masukkan identitas pasien pada kolom pencarian.
+
+3. Klik tombol pencarian untuk menemukan data pasien.
+
+4. Jika pasien sudah terdaftar, pilih data pasien tersebut.
+
+5. Jika pasien belum terdaftar, tambahkan pasien melalui formulir FormPasien.java.
+
+6. Pilih poliklinik tujuan sesuai kebutuhan kunjungan.
+
+7. Lengkapi informasi pendaftaran.
+
+8. Simpan pendaftaran kunjungan.
+
+9. Sistem mencatat kunjungan dan memberikan nomor antrean kepada pasien.
+
+
+### 8. Dashboard Dokter
+<img width="604" height="412" alt="image" src="https://github.com/user-attachments/assets/e71100d5-51b6-46b7-b914-6ed6ddf68102" />
+
+1. Login menggunakan akun dengan role Dokter.
+
+2. Sistem menampilkan Dashboard Dokter.
+
+3. Pilih menu Antrean Dokter untuk melihat pasien yang menunggu pemeriksaan.
+
+### 9. Antrean Dokter
+<img width="605" height="415" alt="image" src="https://github.com/user-attachments/assets/1073bd5c-faee-44ef-bd62-b371cd249945" />
+
+1. Buka menu Antrean Dokter.
+
+2. Sistem menampilkan daftar pasien yang memiliki kunjungan.
+
+3. Perhatikan nomor antrean dan informasi pasien.
+
+4. Pilih pasien yang akan diperiksa.
+
+5. Sistem memeriksa apakah kunjungan sedang dibuka oleh dokter lain.
+
+6. Jika tidak ada konflik, sistem membuka data kunjungan untuk proses pemeriksaan.
+
+### 10. Pemeriksaan Ke Pasien
+<img width="601" height="410" alt="image" src="https://github.com/user-attachments/assets/f7bfb6ad-a81d-4d28-bc33-db8e806ac0a0" />
+
+1. Buka formulir pemeriksaan pasien yang dipilih.
+
+2. Periksa informasi dan riwayat kunjungan pasien.
+
+3. Masukkan keluhan pasien.
+
+4. Catat hasil pemeriksaan.
+
+5. Masukkan diagnosis berdasarkan hasil pemeriksaan.
+
+6. Jika diperlukan, tambahkan resep obat.
+
+7. Masukkan tindak lanjut apabila diperlukan.
+
+8. Periksa kembali data yang telah diisi.
+
+9. Klik tombol simpan untuk menyimpan hasil pemeriksaan.
+
+10. Sistem menyimpan hasil pemeriksaan dan memperbarui status kunjungan menjadi Selesai.
+
+### 11. Riwayat Kunjungan
+<img width="604" height="416" alt="image" src="https://github.com/user-attachments/assets/accb5836-51ce-434a-b9aa-a65e5ffdf696" />
+
+1. Buka menu Riwayat Kunjungan.
+
+2. Masukkan informasi pencarian sesuai kolom yang tersedia.
+
+3. Lakukan pencarian data kunjungan.
+
+4. Sistem menampilkan riwayat kunjungan pasien jika data ditemukan.
+
+5. Periksa tanggal kunjungan, poliklinik, dokter, nomor antrean, dan status kunjungan.
+
+### 12. Perbarui Status
+<img width="600" height="409" alt="image" src="https://github.com/user-attachments/assets/878f746b-b7cf-4d2a-9c8b-77288847f9ce" />
+
+1. Buka menu Perbarui Status.
+
+2. Sistem menampilkan daftar kunjungan pasien.
+
+3. Pilih kunjungan yang ingin diperbarui.
+
+4. Tentukan status kunjungan sesuai proses pelayanan.
+
+5. Simpan perubahan status.
+
+6. Sistem akan menampilkan pemberitahuan apabila perubahan berhasil.
+
+
+
+
 
 # Nama Anggota
-- Ghea Aisyah Windraswari : 2509116022
-- Noor Hamsyah Pratama : 2509116046
-- Condrado Alain Sharon : 2509116069
-- Nurul Shafa Azizah : 2509116112
+## Anggota Kelompok
+
+| No. | Nama Anggota | NIM |
+|:---:|---|:---:|
+| 1 | Ghea Aisyah Windraswari | 2509116022 |
+| 2 | Noor Hamsyah Pratama | 2509116046 |
+| 3 | Condrado Alain Sharon | 2509116069 |
+| 4 | Nurul Shafa Azizah | 2509116112 |
 
