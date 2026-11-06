@@ -36,35 +36,35 @@ Sistem PulseCare memiliki tiga pengguna, yaitu Admin, Petugas, dan Dokter yang w
 
 <img width="1683" height="1515" alt="Usecase dan Flowchart-Menu Utama drawio" src="https://github.com/user-attachments/assets/a56831da-64b2-425a-b42e-c7c6b56778d1" />
 
-pada flowchart ini mengambarkan proses login pada sistem PulseCare, dimulai dari pengguna memasukkan username dan password yang kemudian divalidasi oleh sistem melalui database. Pengguna diberikan maksimal tiga kali percobaan login, dan jika seluruhnya gagal, akun akan dikunci sementara selama 10 detik. Jika login berhasil, sistem akan memeriksa role pengguna dan mengarahkannya ke Dashboard Admin, Petugas, atau Dokter sesuai hak akses masing-masing. Pengguna juga dapat keluar dari sistem melalui fitur logout.
+Proses PulseCare dimulai dari Menu Utama, tempat pengguna dapat memilih Login atau Keluar. Pengguna yang login harus memasukkan username dan password yang akan divalidasi oleh sistem melalui database. Jika gagal, sistem memberikan maksimal tiga kali percobaan sebelum akun dikunci sementara selama 10 detik. Jika berhasil, pengguna diarahkan ke dashboard sesuai role, yaitu Admin untuk mengelola akun, Petugas untuk mengelola data dan kunjungan pasien, serta Dokter untuk mengelola antrean, melihat riwayat, dan mencatat hasil pemeriksaan. Setiap pengguna dapat melakukan logout untuk mengakhiri sesi dan kembali ke Menu Utama.
 </details>
 
 <details>
 <summary>2. Flowchart Dashboard admin</summary>
 <img width="1040" height="348" alt="Usecase dan Flowchart-Dashboard Admin drawio" src="https://github.com/user-attachments/assets/a8567bf9-d8c7-4201-9eda-f799d117c1e4" />
 
-Pada flowchart ini menggambarkan proses pada Dashboard Admin PulseCare. Setelah berhasil login, sistem menampilkan ringkasan akun dan aktivitas akun terbaru. Selanjutnya, Admin dapat memilih untuk mengelola akun pengguna. Jika memilih tidak, Admin dapat keluar melalui fitur logout. Jika memilih ya, sistem akan mengarahkan Admin ke menu Kelola Akun User untuk melakukan pengelolaan akun pengguna.
+flowchart untuk dashboard admin. Proses dimulai saat Admin Sistem memasuki Dashboard Admin. Sistem menampilkan ringkasan akun dan aktivitas akun terbaru. Admin Sistem kemudian dapat memilih menu Kelola Akun User untuk mengelola akun pengguna. Jika memilih Ya, sistem akan mengarahkan Admin Sistem ke halaman Kelola Akun User. Jika memilih Tidak, Admin Sistem dapat melakukan logout untuk mengakhiri sesi login.
 </details>
 
 <details>
 <summary>3. Flowchart Dashboard Petugas</summary>
 
 <img width="1966" height="365" alt="Dashboard Petugas drawio" src="https://github.com/user-attachments/assets/aa55985b-78cd-4d90-8186-a58f061798ea" />
-Pada flowchart ini menggambarkan proses kerja Petugas pada Dashboard PulseCare. Setelah login, sistem menampilkan ringkasan kunjungan dan antrean pasien hari ini. Petugas dapat mengelola data pasien, mendaftarkan kunjungan, memperbarui status kunjungan, serta melihat riwayat kunjungan pasien. Setiap fitur dapat dipilih sesuai kebutuhan pelayanan. Jika tidak ingin menggunakan fitur lainnya, Petugas dapat mengakhiri aktivitas dengan memilih menu Logout.
+Dashboard Petugas menampilkan ringkasan kunjungan dan antrean pasien hari ini. Petugas dapat mengelola data pasien, mendaftarkan kunjungan ke poliklinik, memperbarui status kunjungan, serta melihat riwayat kunjungan pasien. Jika seluruh aktivitas selesai, Petugas dapat melakukan logout untuk mengakhiri sesi.
 </details>
 
 <details>
 <summary>4. Flowchart Dashboard Dokter</summary>
 
 <img width="1605" height="365" alt="Dashboard Dokter drawio" src="https://github.com/user-attachments/assets/b3fbffd5-620e-455c-b095-4751d91680c6" />
-Pada flowchart ini menggambarkan proses kerja Dokter pada Dashboard PulseCare. Setelah login, sistem menampilkan informasi pasien berikutnya dan daftar antrean yang harus diperiksa. Dokter dapat melihat antrean pasien, memperbarui status kunjungan sesuai proses pemeriksaan, serta melihat riwayat kunjungan pasien. Setiap fitur dapat dipilih sesuai kebutuhan pelayanan. Jika seluruh aktivitas telah selesai, Dokter dapat keluar dari sistem melalui menu Logout.
+Dashboard Dokter menampilkan informasi pasien berikutnya dan daftar antrean sesuai poliklinik tempat dokter bertugas. Dokter dapat melihat dan memeriksa pasien melalui menu Antrean Dokter, memperbarui status kunjungan, serta melihat riwayat kunjungan pasien. Setelah selesai, Dokter dapat melakukan logout untuk mengakhiri sesi.
 </details>
 
 <details>
 <summary>5. Flowchart (Admin) Kelola Akun User</summary>
 
 <img width="2753" height="2685" alt="(Admin) Kelola Akun User drawio" src="https://github.com/user-attachments/assets/e73bd7c3-1bd3-47c0-9548-efd9aa5fa123" />
-Pada flowchart ini menggambarkan proses pengelolaan akun pengguna oleh Admin pada sistem PulseCare. Sistem terlebih dahulu menampilkan daftar akun yang tersimpan di database, kemudian Admin dapat menambahkan akun baru, mencari akun berdasarkan kata kunci, mengubah data akun, atau menonaktifkan akun pengguna. Saat menambahkan akun, Admin harus mengisi nama, username, password, dan role serta menetapkan hak akses sesuai peran pengguna. Sistem akan memvalidasi data sebelum menyimpannya ke database. Jika proses berhasil, sistem menampilkan notifikasi dan memperbarui daftar akun. Jika Admin tidak memilih tindakan lainnya, proses akan kembali ke Dashboard Admin.
+Proses pengelolaan akun dimulai saat Admin membuka halaman Kelola Akun User. Sistem menampilkan daftar akun beserta fitur pencarian, tambah, ubah, dan nonaktifkan akun. Saat menambahkan akun, Admin mengisi nama, username, password, dan role, kemudian sistem memvalidasi kelengkapan serta keunikan username. Jika data valid, sistem menetapkan hak akses sesuai role, menyimpan akun ke database, dan menampilkan notifikasi keberhasilan.
 </details>
 
 <details>
@@ -122,3 +122,20 @@ Pada flowchart ini menggambarkan proses dokter melihat antrean pasien pada siste
 <img width="1434" height="1830" alt="(Dokter) Form Pemeriksaan drawio" src="https://github.com/user-attachments/assets/1cf4d14b-1bbf-4b2e-ae96-1d9a741cdf92" />
 Pada flowchart ini menggambarkan proses pemeriksaan pasien pada sistem PulseCare. Dokter melihat data pasien dan riwayat singkat, kemudian mengisi hasil pemeriksaan, diagnosis, serta resep obat jika diperlukan. Dokter juga dapat menambahkan catatan tindak lanjut berupa rekomendasi dan saran pemeriksaan. Setelah selesai, sistem memvalidasi kelengkapan hasil pemeriksaan dan diagnosis. Jika sudah lengkap, sistem menyimpan rekam medis, resep, dan tindak lanjut ke database, kemudian mengubah status kunjungan menjadi Selesai serta menampilkan notifikasi bahwa pemeriksaan berhasil diselesaikan.
 </details>
+
+## ERD
+<details>
+<summary>1. Logical </summary>
+  <img width="2760" height="1486" alt="Logical_pulse" src="https://github.com/user-attachments/assets/4a16c888-ad42-4a80-95a9-a439865d49db" />
+Diagram logical database pada sistem PulseCare menggambarkan hubungan antarentitas, yaitu pegawai, admin, petugas, dokter, shift, pasien, poliklinik, riwayat_kunjungan, dan hasil_kunjungan. Pegawai memiliki beberapa peran, yaitu admin, petugas, dan dokter. Petugas memiliki shift dan menangani pendaftaran kunjungan pasien. Setiap pasien dapat memiliki beberapa riwayat kunjungan yang terhubung dengan poliklinik. Kunjungan tersebut juga dapat ditangani oleh dokter dan menghasilkan data pemeriksaan berupa keluhan, diagnosis, resep obat, serta catatan tindak lanjut. Hubungan antarentitas ini membantu menggambarkan alur pengelolaan data pasien dan pelayanan kesehatan secara terstruktur dalam sistem PulseCare.
+</details>
+
+<details>
+<summary>2. Relational </summary>
+  <img width="2556" height="1490" alt="Relational_pulse" src="https://github.com/user-attachments/assets/bbfba53a-775a-4105-95e1-5c22f2562700" />
+  Relational database pada sistem PulseCare menggambarkan hubungan antara 9 tabel utama, yaitu pegawai, dokter, admin, petugas, pasien, poliklinik, shift, riwayat_kunjungan, dan hasil_kunjungan. Tabel pegawai menjadi data utama yang terhubung dengan dokter, admin, dan petugas. Tabel pasien menyimpan identitas pasien, sedangkan poliklinik dan shift menyimpan data layanan serta jadwal kerja. Selanjutnya, tabel riwayat_kunjungan mencatat data pendaftaran, nomor antrean, dan status kunjungan pasien. Sementara itu, tabel hasil_kunjungan menyimpan keluhan, hasil pemeriksaan, diagnosis, resep obat, dan catatan tindak lanjut dokter. Seluruh tabel saling terhubung menggunakan Primary Key (PK) dan Foreign Key (FK) sehingga pengelolaan data dalam sistem PulseCare menjadi lebih terstruktur dan terintegrasi.
+</details>
+
+
+
+
