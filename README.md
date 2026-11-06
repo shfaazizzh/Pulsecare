@@ -19,6 +19,12 @@ PulseCare merupakan sistem informasi pelayanan pasien rawat jalan yang dirancang
 | MySQL | Database untuk menyimpan dan mengelola data sistem. |
 | SQL | Digunakan untuk mengelola data dalam database. |
 | Java Swing | Digunakan untuk membuat tampilan antarmuka aplikasi desktop. |
+| NetBeans | IDE yang digunakan untuk menulis, menjalankan, dan mengembangkan program Java. |
+| Laragon | Digunakan sebagai lingkungan lokal untuk menjalankan dan mengelola database. |
+| Canva | Digunakan untuk membuat desain dan kebutuhan visual proyek. |
+| Figma | Digunakan untuk merancang tampilan antarmuka dan desain UI/UX. |
+| Microsoft Word | Digunakan untuk menyusun laporan dokumentasi proyek. |
+| Data Modeler | Digunakan untuk merancang dan memvisualisasikan model database. |
 
 # Perancangan Sistem
 ## Use Case 
@@ -71,56 +77,56 @@ Proses pengelolaan akun dimulai saat Admin membuka halaman Kelola Akun User. Sis
 <summary>6. Flowchart (Petugas 1) Kelola Data Pasien</summary>
 
 <img width="2687" height="2410" alt="(Petugas 1) Kelola Data Pasien drawio" src="https://github.com/user-attachments/assets/94387ab2-5394-43fe-914c-36ba076ccb48" />
-Pada flowchart ini menggambarkan proses pengelolaan data pasien oleh Petugas pada sistem PulseCare. Sistem menampilkan daftar pasien beserta fitur tambah, ubah, hapus, dan pencarian data. Petugas dapat menambahkan pasien baru, memperbarui data pasien dengan mengisi informasi seperti nama, NIK, tanggal lahir, jenis kelamin, alamat, nomor HP, dan status BPJS, kemudian sistem melakukan validasi sebelum menyimpan perubahan ke database. Petugas juga dapat menghapus data pasien, tetapi pasien yang masih memiliki kunjungan aktif tidak dapat dihapus. Selain itu, tersedia fitur pencarian pasien berdasarkan nama, NIK, atau ID pasien agar data lebih mudah ditemukan.
+Proses pengelolaan data pasien dimulai saat Petugas membuka halaman Kelola Data Pasien. Sistem menampilkan daftar pasien beserta fitur pencarian, tambah, ubah, dan hapus data. Petugas dapat menambahkan pasien baru, memperbarui data pasien melalui formulir yang akan divalidasi sebelum disimpan ke database, serta menghapus data pasien jika tidak memiliki kunjungan aktif. Petugas juga dapat mencari data berdasarkan nama, NIK, atau ID pasien. Jika data ditemukan, sistem menampilkannya pada tabel, sedangkan jika tidak, sistem memberikan pemberitahuan bahwa pasien tidak ditemukan. Setelah selesai, Petugas dapat kembali ke Dashboard Petugas.
 </details>
 
 <details>
 <summary>7. Flowchart (Petugas) Tambah Pasien Baru</summary>
 
 <img width="2026" height="1045" alt="(Petugas) Tambah Pasien Baru  drawio" src="https://github.com/user-attachments/assets/b727ef01-7745-4057-9a9e-e7cc99563630" />
-Pada flowchart ini i menggambarkan proses penambahan pasien baru pada sistem PulseCare. Petugas mengisi formulir yang berisi nama, NIK, tanggal lahir, jenis kelamin, alamat, nomor HP, dan status BPJS. Sistem kemudian memvalidasi nomor HP yang harus terdiri dari 10–13 digit dan NIK sebanyak 16 digit serta memastikan NIK belum terdaftar. Jika data valid, sistem membuat ID pasien dan menyimpan data ke database. Setelah berhasil disimpan, sistem menampilkan notifikasi bahwa data pasien berhasil ditambahkan dan Petugas dapat memilih untuk melanjutkan ke pendaftaran kunjungan atau kembali ke menu Kelola Data Pasien. Jika data tidak valid atau gagal disimpan, sistem akan menampilkan pesan kesalahan.
+tambah pasien dimulai saat Petugas memilih menu Tambah Pasien Baru dan mengisi formulir data pasien. Sistem kemudian memvalidasi nomor telepon agar terdiri dari 10–13 digit dan NIK sebanyak 16 digit serta belum terdaftar. Jika seluruh data valid, sistem membuat ID pasien dan menyimpan data ke database. Setelah berhasil disimpan, sistem menampilkan notifikasi dan memberikan pilihan untuk melanjutkan ke pendaftaran kunjungan atau kembali ke halaman Kelola Data Pasien. Jika penyimpanan gagal, sistem menampilkan pesan kegagalan dan mengarahkan Petugas kembali ke halaman Kelola Data Pasien.
 </details>
 
 <details>
 <summary>8. Flowchart (Petugas2) Daftarkan Kujungan</summary>
 
 <img width="1745" height="1175" alt="(Petugas 2) Daftarkan Kunjungan drawio" src="https://github.com/user-attachments/assets/8ee1e9c7-b67a-4fa7-bf25-d8c8736beafc" />
-Pada flowchart ini menggambarkan proses pendaftaran kunjungan pasien pada sistem PulseCare. Petugas terlebih dahulu mencari pasien berdasarkan nama, NIK, atau ID pasien. Sistem akan memeriksa data pasien melalui database. Jika kata kunci kosong, sistem meminta Petugas mengisinya terlebih dahulu. Jika pasien ditemukan dan terdaftar, Petugas dapat memilih pasien lalu melanjutkan proses pendaftaran kunjungan. Namun, jika pasien belum terdaftar, sistem memberikan pilihan untuk menambahkan pasien baru atau kembali ke menu sebelumnya.
+pendaftaran kunjungan dimulai saat Petugas membuka menu Daftarkan Kunjungan dan mencari data pasien berdasarkan nama, NIK, atau ID pasien. Jika pasien ditemukan, Petugas memilih pasien dan menentukan poliklinik yang dituju. Sistem kemudian memeriksa kemungkinan kunjungan aktif untuk mencegah pendaftaran ganda. Jika tidak ditemukan kunjungan ganda, Petugas memeriksa dan mengonfirmasi data pendaftaran. Selanjutnya, sistem menyimpan kunjungan, membuat nomor antrean secara berurutan untuk seluruh poliklinik, dan menetapkan status Menunggu. Jika pendaftaran berhasil, sistem menampilkan tiket antrean dan memberikan pilihan untuk mendaftarkan pasien berikutnya atau kembali ke Dashboard Petugas.
 </details>
 
 <details>
 <summary>9. Flowchart Daftarkan Kujungan2</summary>
 
 <img width="1968" height="1325" alt="Daftarkan Kunjungan (2) drawio" src="https://github.com/user-attachments/assets/03def17e-4d46-4c89-a364-b4e835304610" />
-Pada flowchart ini menggambarkan proses pendaftaran kunjungan pasien pada sistem PulseCare. Petugas memilih poli tujuan, kemudian sistem memvalidasi kelengkapan data dan memeriksa apakah pasien sudah memiliki kunjungan aktif pada poli dan tanggal yang sama. Jika tidak ditemukan kunjungan ganda, Petugas melakukan konfirmasi data pasien dan kunjungan. Selanjutnya, sistem menyimpan data ke database, membuat nomor antrean berdasarkan tanggal dan urutan pendaftaran, serta menetapkan status kunjungan menjadi menunggu. Jika pendaftaran berhasil, sistem menyimpan data secara permanen dan menampilkan tiket nomor antrean. Petugas juga dapat melanjutkan pendaftaran pasien lain atau kembali ke Dashboard Petugas. Jika proses gagal, sistem membatalkan pendaftaran dan menampilkan notifikasi kesalahan.
+pendaftaran kunjungan dimulai saat Petugas membuka menu Daftarkan Kunjungan dan mencari data pasien berdasarkan nama, NIK, atau ID pasien. Jika pasien ditemukan, Petugas memilih pasien dan menentukan poliklinik yang dituju. Sistem kemudian memeriksa kemungkinan kunjungan aktif untuk mencegah pendaftaran ganda. Jika tidak ditemukan kunjungan ganda, Petugas memeriksa dan mengonfirmasi data pendaftaran. Selanjutnya, sistem menyimpan kunjungan, membuat nomor antrean secara berurutan untuk seluruh poliklinik, dan menetapkan status Menunggu. Jika pendaftaran berhasil, sistem menampilkan tiket antrean dan memberikan pilihan untuk mendaftarkan pasien berikutnya atau kembali ke Dashboard Petugas.
 </details>
 
 <details>
 <summary>10. Flowchart Petugas dan Dokter Lihat Riwayat kunjungan </summary>
 
 <img width="1082" height="1320" alt="(Petugas dan Dokter) Lihat Riwayat Kunjungan drawio" src="https://github.com/user-attachments/assets/2c8bad01-1a44-4f90-aa32-38f6d98eab81" />
-Pada flowchart ini menggambarkan proses melihat riwayat kunjungan pasien pada sistem PulseCare. Petugas memasukkan waktu daftar pada kolom pencarian, kemudian sistem memeriksa data di database. Jika data kosong, sistem menampilkan informasi belum ada riwayat kunjungan. Jika tersedia, sistem menampilkan detail riwayat berupa tanggal daftar, poli, dokter, nomor antrean, dan status. Petugas kemudian dapat tetap berada di halaman atau kembali ke Dashboard Petugas maupun Dashboard Dokter sesuai dengan role pengguna.
+Lihat Riwayat Kunjungan dimulai saat Petugas atau Dokter membuka menu Lihat Riwayat Kunjungan. Sistem menampilkan kolom pencarian dan filter berdasarkan waktu pendaftaran untuk mencari data kunjungan. Jika waktu pendaftaran diisi, sistem menampilkan riwayat kunjungan yang berisi tanggal pendaftaran, poliklinik, dokter, nomor antrean, dan status kunjungan. Jika pencarian tidak diisi, sistem memberikan pesan bahwa belum ada riwayat kunjungan. Setelah selesai melihat data, pengguna dapat kembali ke dashboard sesuai dengan perannya, yaitu Dashboard Petugas atau Dashboard Dokter.
 </details>
 
 <details>
 <summary>11. Flowchart (Petugas dan Dokter) Perbarui Status Kunjungan. </summary>
 
 <img width="2709" height="1447" alt="Petugas dan Dokter) Perbarui Status Kunjungan drawio" src="https://github.com/user-attachments/assets/a9b6b5a0-df0e-43b5-933d-d477687ef49e" />
-Pada flowchart ini menggambarkan proses memperbarui status kunjungan pasien pada sistem PulseCare. Sistem menampilkan daftar kunjungan hari ini dari database. Petugas memilih data kunjungan dan menentukan status baru, yaitu Menunggu, Sedang Diperiksa, atau Selesai. Setelah disimpan, sistem memvalidasi perubahan status dan memeriksa apakah data telah diubah oleh petugas lain. Jika berhasil, sistem menyimpan status baru dan menampilkan notifikasi bahwa status kunjungan berhasil diperbarui. Jika perubahan tidak diperbolehkan, sistem menampilkan peringatan.
+Perbarui Status Kunjungan dimulai saat Petugas atau Dokter membuka menu Perbarui Status Kunjungan. Sistem menampilkan daftar kunjungan pasien hari ini yang berisi nomor antrean, nama pasien, dokter, dan status kunjungan. Pengguna dapat memilih kunjungan dan mengubah status menjadi Menunggu, Sedang Diperiksa, atau Selesai. Sebelum disimpan, sistem memvalidasi status dan memeriksa apakah data telah diubah oleh pengguna lain. Jika tidak ada kendala, sistem menyimpan perubahan ke database dan menampilkan notifikasi keberhasilan.
 </details>
 
 <details>
 <summary>12. Flowchart (Dokter 1) Antrean Dokter </summary>
   
 <img width="2105" height="1131" alt="(Dokter 1) Antrean Dokter drawio" src="https://github.com/user-attachments/assets/1bae8d65-bf86-4ca5-9438-2ef02ccab93d" />
-Pada flowchart ini menggambarkan proses dokter melihat antrean pasien pada sistem PulseCare. Sistem menampilkan daftar antrean dengan status Menunggu dari database. Jika tidak ada antrean, sistem menampilkan informasi bahwa tidak ada antrean. Jika tersedia, sistem menampilkan tabel berisi nomor antrean, pasien, keluhan, dan status. Dokter kemudian dapat kembali ke Dashboard Dokter atau memilih antrean untuk diperiksa. Sistem memeriksa apakah kunjungan sedang dibuka oleh dokter lain. Jika iya, sistem menampilkan peringatan. Jika tidak, sistem mengunci kunjungan untuk dokter tersebut, mengubah status menjadi Sedang Diperiksa, lalu mengarahkan dokter ke halaman Form Pemeriksaan.
+Antrean Dokter dimulai saat Dokter membuka menu Antrean Dokter untuk melihat daftar pasien dengan status Menunggu. Sistem menampilkan informasi nomor antrean, nama pasien, keluhan, dan status kunjungan. Dokter kemudian memilih pasien yang akan diperiksa. Sistem akan memeriksa apakah kunjungan tersebut sedang dibuka oleh dokter lain. Jika belum, sistem mengunci kunjungan untuk dokter yang sedang login dan mengubah statusnya menjadi Sedang Diperiksa. Selanjutnya, Dokter diarahkan ke Form Pemeriksaan untuk mencatat keluhan, hasil pemeriksaan, diagnosis, resep obat, serta catatan tindak lanjut jika diperlukan.
 </details>
 
 <details>
 <summary>13. Flowchart (Dokter) Form Pemeriksaan </summary>
   
 <img width="1434" height="1830" alt="(Dokter) Form Pemeriksaan drawio" src="https://github.com/user-attachments/assets/1cf4d14b-1bbf-4b2e-ae96-1d9a741cdf92" />
-Pada flowchart ini menggambarkan proses pemeriksaan pasien pada sistem PulseCare. Dokter melihat data pasien dan riwayat singkat, kemudian mengisi hasil pemeriksaan, diagnosis, serta resep obat jika diperlukan. Dokter juga dapat menambahkan catatan tindak lanjut berupa rekomendasi dan saran pemeriksaan. Setelah selesai, sistem memvalidasi kelengkapan hasil pemeriksaan dan diagnosis. Jika sudah lengkap, sistem menyimpan rekam medis, resep, dan tindak lanjut ke database, kemudian mengubah status kunjungan menjadi Selesai serta menampilkan notifikasi bahwa pemeriksaan berhasil diselesaikan.
+Form Pemeriksaan dimulai setelah Dokter memilih pasien dari halaman Antrean Dokter. Sistem menampilkan data pasien dan riwayat singkat sebagai referensi pemeriksaan. Dokter kemudian mengisi hasil pemeriksaan dan diagnosis, serta menambahkan resep obat dan catatan tindak lanjut jika diperlukan. Sebelum pemeriksaan diselesaikan, sistem memvalidasi kelengkapan hasil pemeriksaan dan diagnosis. Jika data sudah lengkap, sistem menyimpan seluruh hasil pemeriksaan ke database dan mengubah status kunjungan menjadi Selesai. Setelah itu, Dokter diarahkan kembali ke halaman Antrean Dokter untuk melayani pasien berikutnya.
 </details>
 
 ## ERD
@@ -136,6 +142,16 @@ Diagram logical database pada sistem PulseCare menggambarkan hubungan antarentit
   Relational database pada sistem PulseCare menggambarkan hubungan antara 9 tabel utama, yaitu pegawai, dokter, admin, petugas, pasien, poliklinik, shift, riwayat_kunjungan, dan hasil_kunjungan. Tabel pegawai menjadi data utama yang terhubung dengan dokter, admin, dan petugas. Tabel pasien menyimpan identitas pasien, sedangkan poliklinik dan shift menyimpan data layanan serta jadwal kerja. Selanjutnya, tabel riwayat_kunjungan mencatat data pendaftaran, nomor antrean, dan status kunjungan pasien. Sementara itu, tabel hasil_kunjungan menyimpan keluhan, hasil pemeriksaan, diagnosis, resep obat, dan catatan tindak lanjut dokter. Seluruh tabel saling terhubung menggunakan Primary Key (PK) dan Foreign Key (FK) sehingga pengelolaan data dalam sistem PulseCare menjadi lebih terstruktur dan terintegrasi.
 </details>
 
+# Struktur Folder/Package
 
 
+# Penjelasan Penerapan 4 Pilar OOP di dalam program
+
+# Cara Penggunaan 
+
+# Nama Anggota
+- Ghea Aisyah Windraswari : 2509116022
+- Noor Hamsyah Pratama : 2509116046
+- Condrado Alain Sharon : 2509116069
+- Nurul Shafa Azizah : 2509116112
 
